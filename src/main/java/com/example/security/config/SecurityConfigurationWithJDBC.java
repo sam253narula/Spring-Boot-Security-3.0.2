@@ -67,8 +67,7 @@ public class SecurityConfigurationWithJDBC {
         http.csrf().disable().authorizeHttpRequests()
             .requestMatchers("/organicVeggies/viewFinancials", "/organicVeggies/makeAnnouncement")
             .hasRole("STORE_OWNER")
-            .requestMatchers("/organicVeggies/checkInventory", "/organicVeggies/viewInventory" +
-                    "/organicVeggies/doCheckout/")
+            .requestMatchers("/organicVeggies/checkInventory", "/organicVeggies/viewInventory", "/organicVeggies/doCheckout/")
             .hasAnyRole("STORE_OWNER", "STORE_CLERK").requestMatchers("/**").permitAll().and().formLogin();
 
         return http.build();
